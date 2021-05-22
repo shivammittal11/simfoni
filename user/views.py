@@ -1,5 +1,6 @@
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
+from django.db.models import Q
 from django.http import HttpResponseRedirect
 from django.http import JsonResponse
 from django.shortcuts import render, redirect
@@ -77,7 +78,7 @@ def home(request):
 
 def search_supplier(request):
     name = request.GET.get('name')
-    user_queryset = User.objects.filter(supplier_business_name__icontains=name, is_staff=False)
+    user_queryset = User.objects.filter(Q(supplier_business_name__icontains=name, is_staff=False) | Q(username__icontains=name, is_staff=False) | Q(supplier_address__icontains=name, is_staff=False))
     serializer = UserSerializer(user_queryset, many=True)
     return render(request, 'search.html',
                   {'supplier_list': serializer.data
