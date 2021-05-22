@@ -5,4 +5,5 @@ from user.views import *
 urlpatterns = [
     path('signup/', user_signup),
     path('search_supplier/', search_supplier),
+    path('message/', message),
 ]
