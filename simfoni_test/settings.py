@@ -23,7 +23,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'fur_s2*%=j&u121_22+e59j7%vej#pd#!fh*n!!35#3!4rie+f'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['*']
 
@@ -75,8 +75,8 @@ WSGI_APPLICATION = 'simfoni_test.wsgi.application'
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
 
-# DATABASE = 'MYSQL'
-DATABASE = 'SQLITE'
+DATABASE = 'MYSQL'
+# DATABASE = 'SQLITE'
 
 DB_SETTINGS = [{
     'ENGINE': 'django.db.backends.mysql',
@@ -151,9 +151,9 @@ USE_TZ = True
 STATIC_URL = '/static/'
 MEDIA_URL = '/media/'
 
-STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
-
-# STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+# STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
+#
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 AUTH_USER_MODEL = 'user.User'
