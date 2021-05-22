@@ -1,0 +1,23 @@
+
+.image_logo{
+    height: 40px;
+}
+
+.nav-link{
+    color: dodgerblue!important;
+}
+
+.footer{
+    height: 50px;
+    background-color: darkgrey;
+}
+
+html{
+    overflow-x: hidden;
+}
+
+.right-pull{
+    position: absolute;
+    float: right;
+    right: 3%;
+}

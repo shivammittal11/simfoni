@@ -1,0 +1,290 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <style>
+
+        .product_class{
+            border: 1px solid dodgerblue!important;
+            border-radius: 10px!important;
+            text-align: center;
+            color: dodgerblue!important;
+        }
+    </style>
+    <div class="ml-2" style="overflow-x: hidden">
+        <div class="row form-group">
+            <div class="col-12">
+                <h3>{{ request.user.supplier_business_name }}</h3>
+            </div>
+        </div>
+        <div class="row form-group">
+            <div class="col-2 ml-2"><h4>Products & services</h4></div>
+            {% for product_obj in product_list %}
+                {#                <div class="col-1">#}
+                <p class="p-2 ml-2 product_class">{{ product_obj.name }}</p>
+                {#                </div>#}
+            {% endfor %}
+            <div class="col-2 ml-2 mt-1"><i data-target="#product_modal" data-toggle="modal" class="fas fa-edit" style="color: blue"></i></div>
+
+        </div>
+
+        <div class="row form-group">
+            <div class="col-12">
+                <div class="">
+
+                    <ul class="nav nav-tabs responsive " role="tablist">
+                        <li class="nav-item">
+                            <a class="nav-link active" data-toggle="tab" href="#home" role="tab">Contacts</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" data-toggle="tab" href="#profile" role="tab">Certifications</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" data-toggle="tab" href="#messages" role="tab">Agreements</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" data-toggle="tab" href="#messages1" role="tab">Banking Details</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" data-toggle="tab" href="#messages2" role="tab">Invoice Settings</a>
+                        </li>
+                    </ul><!-- Tab panes -->
+                    <div class="tab-content responsive">
+                        <div class="tab-pane active" id="home" role="tabpanel">
+                            <div class="container-fluid">
+                                <div class="row mt-3">
+                                    <div class="col-lg-6 col-md-6 col-sm-12">
+                                        <h5>Primary Contract <button class="btn btn-primary float-right btn-sm" data-target="#primary_modal" data-toggle="modal">Edit</button></h5>
+                                        <br>
+                                        <div class="row form-group">
+                                            <div class="col-3">
+                                                <label>Full Name</label>
+                                            </div>
+                                            <div class="col-9">
+                                                <input type="text" class="form-control" value="{{ request.user.first_name }}" disabled>
+                                            </div>
+                                        </div>
+                                        <div class="row form-group">
+                                            <div class="col-3">
+                                                <label>Email</label>
+                                            </div>
+                                            <div class="col-9">
+                                                <input type="text" class="form-control" value="{{ request.user.username }}" disabled>
+                                            </div>
+                                        </div>
+
+                                        <div class="row form-group">
+                                            <div class="col-3">
+                                                <label>Phone</label>
+                                            </div>
+                                            <div class="col-9">
+                                                <input type="text" class="form-control" value="{{ request.user.primary_phone }}" disabled>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-lg-6 col-md-6 col-sm-12">
+                                        <h5>Secondary Contract <button class="btn btn-primary float-right btn-sm" data-target="#secondary_modal" data-toggle="modal">Edit</button></h5>
+                                        <br>
+                                        <div class="row form-group">
+                                            <div class="col-3">
+                                                <label>Full Name</label>
+                                            </div>
+                                            <div class="col-9">
+                                                <input type="text" class="form-control" value="{{ request.user.secondary_representative_name }}" disabled>
+                                            </div>
+                                        </div>
+                                        <div class="row form-group">
+                                            <div class="col-3">
+                                                <label>Email</label>
+                                            </div>
+                                            <div class="col-9">
+                                                <input type="text" class="form-control" value="{{ request.user.secondary_email }}" disabled>
+                                            </div>
+                                        </div>
+
+                                        <div class="row form-group">
+                                            <div class="col-3">
+                                                <label>Phone</label>
+                                            </div>
+                                            <div class="col-9">
+                                                <input type="text" class="form-control" value="{{ request.user.secondary_phone }}" disabled>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-pane" id="profile" role="tabpanel">
+                            <div class="container-fluid">
+                                <div class="row mt-3">
+                                    <div class="col-9">
+                                        <p class="h3">Second Panel</p>
+                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nisi impedit, quae enim, id nobis et fugit aut voluptates reprehenderit, atque dolore, eveniet velit repellat. Explicabo sunt corporis in. Beatae, vel!</p>
+                                    </div>
+                                    <div class="col-3"><img alt="macbook_air_on_desk_925x" src="https://preview.ibb.co/f2foiF/macbook_air_on_desk_925x.jpg" class="w-100"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-pane" id="messages" role="tabpanel">
+                            <div class="container-fluid">
+                                <div class="row mt-3">
+                                    <div class="col">
+                                        <p class="h3">Third Panel</p>
+                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nisi impedit, quae enim, id nobis et fugit aut voluptates reprehenderit, atque dolore, eveniet velit repellat. Beatae, vel!</p>
+                                        <ul>
+                                            <li>Explicabo sunt corporis in.</li>
+                                            <li>Explicabo sunt corporis in.</li>
+                                            <li>Explicabo sunt corporis in.</li>
+                                            <li>Explicabo sunt corporis in.</li>
+                                            <li>Explicabo sunt corporis in.</li>
+                                            <li>Explicabo sunt corporis in.</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-pane" id="messages1" role="tabpanel">
+                            <div class="container-fluid">
+                                <div class="row mt-3">
+                                    <div class="col">
+                                        <p class="h3">Forth Panel</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-pane" id="messages2" role="tabpanel">
+                            <div class="container-fluid">
+                                <div class="row mt-3">
+                                    <div class="col">
+                                        <p class="h3">Fifth Panel</p>
+                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nisi impedit, quae enim, id nobis et fugit aut voluptates reprehenderit, atque dolore, eveniet velit repellat. Beatae, vel!</p>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <form method="post">
+        {% csrf_token %}
+        <!-- Modal -->
+        <div class="modal fade" id="product_modal" tabindex="-1" role="dialog" aria-labelledby="product_modalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5>Add Product</h5>
+                        <button type="button" class="close" data-dismiss="modal">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body field-add-body">
+                        <div class="col-sm-12">
+                            <label>Name</label>
+                            <input type="text" id="name" name="name" class="form-control">
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </form>
+
+    <form method="post">
+        {% csrf_token %}
+        <!-- Modal -->
+        <div class="modal fade" id="primary_modal" tabindex="-1" role="dialog" aria-labelledby="product_modalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5>Edit Primary Contact</h5>
+                        <button type="button" class="close" data-dismiss="modal">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body field-add-body">
+                        <div class="row form-group">
+                            <div class="col-sm-12">
+                                <label>Name</label>
+                                <input type="text" class="form-control" name="first_name" value="{{ request.user.first_name }}">
+                            </div>
+                        </div>
+
+                        <div class="row form-group">
+                            <div class="col-sm-12">
+                                <label>Email</label>
+                                <input type="text" class="form-control" name="username" value="{{ request.user.username }}" disabled>
+                            </div>
+                        </div>
+
+                        <div class="row form-group">
+                            <div class="col-sm-12">
+                                <label>Phone</label>
+                                <input type="text" class="form-control" name="primary_phone" value="{{ request.user.primary_phone }}">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="submit" name="primary" class="btn btn-primary">Submit</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </form>
+
+
+    <form method="post">
+        {% csrf_token %}
+        <!-- Modal -->
+        <div class="modal fade" id="secondary_modal" tabindex="-1" role="dialog" aria-labelledby="secondary_modalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5>Edit Secondary Contact</h5>
+                        <button type="button" class="close" data-dismiss="modal">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body field-add-body">
+                        <div class="row form-group">
+                            <div class="col-sm-12">
+                                <label>Name</label>
+                                <input type="text" class="form-control" name="secondary_representative_name" value="{{ request.user.secondary_representative_name }}">
+                            </div>
+                        </div>
+
+                        <div class="row form-group">
+                            <div class="col-sm-12">
+                                <label>Email</label>
+                                <input type="text" class="form-control" name="secondary_email" value="{{ request.user.secondary_email }}">
+                            </div>
+                        </div>
+
+                        <div class="row form-group">
+                            <div class="col-sm-12">
+                                <label>Phone</label>
+                                <input type="text" class="form-control" name="secondary_phone" value="{{ request.user.secondary_phone }}">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="submit" name="secondary" class="btn btn-primary">Submit</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </form>
+
+
+{% endblock %}

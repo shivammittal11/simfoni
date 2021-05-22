@@ -1,0 +1,66 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        function search_supplier() {
+            var name = document.getElementById('search_name').value;
+            $.ajax({
+                url: '/user/search_supplier/',
+                method: "GET",
+                data: {'name': name},
+                success: function (html) {
+                    $('#supplier_list').html('');
+                    $('#supplier_list').append(html);
+
+                }
+            });
+        }
+    </script>
+
+<br>
+    <div class="row">
+        <div class="col-12">
+            <h3>Suppliers</h3>
+            <input type="text" class="form-control" id="search_name" onkeyup="search_supplier()" placeholder="Search...">
+        </div>
+    </div>
+    <br>
+    <div class="row form-group">
+        <div class="col-12">
+            {#            <div class="card">#}
+            {#                <div class="card-body">#}
+            <table class="table">
+                <thead>
+                <tr style="background-color: lightgrey">
+                    <th>ID</th>
+                    <th>Business Name</th>
+                    <th>Email</th>
+                    <th>Full Name</th>
+                    <th>Address</th>
+                </tr>
+                </thead>
+                <tbody id="supplier_list">
+                {% for obj in supplier_list %}
+                    <tr>
+                        <td>{{ obj.id }}</td>
+                        <td>{{ obj.supplier_business_name }}</td>
+                        <td>{{ obj.username }}</td>
+                        <td>{{ obj.first_name }}</td>
+                        <td>{{ obj.supplier_address }}</td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+    {#        </div>#}
+    {#    </div>#}
+
+{% endblock %}
+
+{% block js %}
+
+{% endblock %}
+

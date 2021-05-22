@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"/>
+<style>
+    .red-color{
+        color: red;
+    }
+</style>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<div class="auth-wrapper d-flex no-block justify-content-center align-items-center">
+    <div class="card auth-box p-4" style="margin-top:12%!important;margin-bottom:3%!important;">
+        <div id="card-body">
+            <div class="logo">
+                <span><img class="image_logo" src="/static/img/s_logo.png" alt="logo" /></span>
+            </div>
+            <!-- Form -->
+            <div class="row">
+                <div class="col-12">
+                    <form class="form-horizontal mt-3" method="post">
+                        {% csrf_token %}
+                        <label>Email</label>
+                        <div class="input-group mb-3">
+                            <input type="email" name="username" autofocus required class="form-control form-control" aria-label="Email" aria-describedby="basic-addon1">
+                        </div>
+                        <label>Password</label>
+                        <div class="input-group mb-3">
+                            <input type="password" name="password" required class="form-control form-control" aria-label="Password" aria-describedby="basic-addon1">
+                        </div>
+                        {% if success == 1 %}
+                            <div>
+                                <p class="red-color">Invalid login Credintial</p>
+                            </div>
+                        {% endif %}
+                        <div class="form-group text-center">
+                            <div class="col-xs-12 pb-3">
+                                <input class="btn btn-block btn-info" type="submit" value="LOG IN">
+                            </div>
+                            <a href="#!" class="text-info ml-1 float-left" style="float: left">Forgot Password</a>
+                            <a href="/user/signup/" class="text-info ml-1 float-right">Sign Up</a>
+                        </div>
+                        <div class="form-group mb-0 mt-2 ">
+                            <div class="col-sm-12 text-center ">
+
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

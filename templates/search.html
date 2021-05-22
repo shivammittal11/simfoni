@@ -1,0 +1,9 @@
+{% for obj in supplier_list %}
+    <tr>
+        <td>{{ obj.id }}</td>
+        <td>{{ obj.supplier_business_name }}</td>
+        <td>{{ obj.username }}</td>
+        <td>{{ obj.first_name }}</td>
+        <td>{{ obj.supplier_address }}</td>
+    </tr>
+{% endfor %}
